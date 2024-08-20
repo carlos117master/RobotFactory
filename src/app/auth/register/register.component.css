@@ -1,0 +1,23 @@
+
+  .imgHeader{
+    background-image: url("/assets/contact-header.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20vh;
+  }
+
+  .imgHeader h1{
+    text-align: center;
+  }
+  
+  #imgPreview{
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  main{
+    background-color: gray;
+    padding: 20px;
+    border-radius: 20px;
+  }

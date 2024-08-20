@@ -1,0 +1,28 @@
+<div class="col cardNoticia">
+    <div class="card shadow-sm">
+        @if(noticia.imagen){
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder:  " focusable="false" preserveAspectRatio="xMidYMid slice" [src]="noticia.imagen">
+              
+        }
+        <div class="card-body">
+            <h5 class="card-title">
+                {{noticia.titulo}}
+            </h5>
+            <p class="card-text">{{noticia.descripcion}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                @if(infoUsuario){
+                    <div class="nickname text-warning">{{infoUsuario.nickname || "nickname no disponible"}}</div>
+                  }
+
+                  @if(noticia.mine){
+                    <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-danger" (click)="deleteNoticia()">Delete</button>
+                </div>  
+                }
+                <small class="text-muted">
+                    {{noticia.fecha | date: 'short'}} 
+                </small>
+            </div>
+        </div>
+    </div>
+</div>

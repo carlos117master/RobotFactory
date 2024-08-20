@@ -1,0 +1,19 @@
+.card img {
+    height: 230px;
+    width: 100%;
+    padding: 50px;
+  }
+  .card-body .card-title {
+    font-size: 20px;
+  }
+
+  .avatar img{
+    width: 50px;
+  }
+  
+  .nickname{
+    margin-left: 10px;
+  }
+  button{
+    margin: 20px;
+  }

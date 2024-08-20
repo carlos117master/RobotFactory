@@ -1,0 +1,18 @@
+<div class="container-fuid imgHeader">
+  <div class="imgHeader-text pt-5 text-warning">
+    <h1>
+      <a class="text-decoration-none" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>/Robots
+    </h1>
+  </div>
+</div>
+
+
+<main class="container-fluid">
+    <section class="row">
+      @for(robot of robots; track robot._id){
+        <div class="card m-4" style="width: 18rem">
+        <robot-card  [robot]="robot" (deleted)="deleteRobot(this.robot)"></robot-card>
+      </div>
+      }
+    </section>
+</main>

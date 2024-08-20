@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post" [formGroup]="noticiaForm" (ngSubmit)="addNoticia()">
+                    <fieldset>
+                        <legend class="text-center header text-warning">Sube una noticia</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fname" name="titulo" type="text" formControlName ="titulo" placeholder="Titulo noticia" class="form-control"  [ngClass]="validClasses(title, 'is-invalid')">
+                            </div>
+                            @if(title.errors?.['minlength']) {
+                                <div class="invalid-feedback">
+                                  You must enter at least
+                                  {{title.errors?.['minlength'].requiredLength - title.errors?.['minlength'].actualLength}}
+                                  characters more
+                                </div>
+                                }
+                                @if(title.errors?.['pattern']){
+                                    <div class="invalid-feedback">
+                                      You must enter the correct format
+                                    </div>
+                                  }
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="descripcion" formControlName="descripcion" name="descripcion" placeholder="Ingresa el titulo de la noticia..." rows="7"
+                                [ngClass]="validClasses(description, 'is-invalid')"
+                                ></textarea>
+                            </div>
+                            @if(description.errors?.['minlength']) {
+                                <div class="invalid-feedback">
+                                  You must enter at least
+                                  {{description.errors?.['minlength'].requiredLength - description.errors?.['minlength'].actualLength}}
+                                  characters more
+                                </div>
+                                }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image">Photo</label>
+                            <input
+                              type="file"
+                              class="form-control"
+                              accept="imagen/*"
+                              (change)="changeImage($event)"
+                              formControlName="imagen"
+                              name="imagen"
+                              [ngClass]="validClasses(image,'is-invalid')"
+                            />
+                          </div>
+                            <img [src]="imggBase64" alt="" id="imgPreview" class="img-thumbnail" />
+                          <p class="text-danger" id="errorInfo"></p>
+                        
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" [disabled]="noticiaForm.invalid" class="btn btn-primary btn-lg">subir noticia</button>
+                            </div>
+                        </div>
+
+                        @if(noticiaForm.errors?.['postForm']){
+                            <div class="col my-auto text-danger">
+                              Debe tener al menos una descripcion y un titulo
+                             </div>
+                          }
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

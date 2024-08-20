@@ -1,0 +1,60 @@
+<!--<form action="#" id="form-login" method="POST" role="form" (ngSubmit)="doLogin()" #addForm="ngForm">
+    <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label text-warning">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email" #emailModel="ngModel" [ngClass]="validClasses(emailModel, 'is-valid', 'is-invalid')" >
+      <small id="emailHelp" class="form-text text-warning">We'll never share your email with anyone else.</small>
+    </div>
+    @if(emailModel.errors?.['required']) {
+      <div class="invalid-feedback">email cannot be empty</div>
+      }
+    <div class="form-group">
+      <label for="exampleInputPassword1" class="form-label text-warning">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password" #passModel="ngModel" [ngClass]="validClasses(passModel,'is-valid', 'is-invalid')">
+    </div>
+    @if(passModel.errors?.['required']) {
+      <div class="invalid-feedback">Password cannot be empty</div>
+      }
+    <button type="submit" class="btn btn-primary">login</button>
+    <a class="btn btn-secondary" [routerLink]="['/register']" role="button">Create account</a>
+  </form>-->
+  <section class="vh-100 d-flex align-items-center justify-content-center">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="/assets/login.jpg"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form action="#" id="form-login" method="POST" role="form" (ngSubmit)="doLogin()" #addForm="ngForm">
+            <!-- Email input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="email" id="email" class="form-control form-control-lg"
+                placeholder="Enter a valid email address" [(ngModel)]="email" name="email" #emailModel="ngModel" [ngClass]="validClasses(emailModel, 'is-valid', 'is-invalid')"/>
+              <label class="form-label text-warning" for="email">Email address</label>
+            </div>
+            @if(emailModel.errors?.['required']) {
+              <div class="invalid-feedback text-danger">email cannot be empty</div>
+              }
+  
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+              <input type="password" id="form3Example4" class="form-control form-control-lg"
+                placeholder="Enter password" [(ngModel)]="password" name="password" #passModel="ngModel" [ngClass]="validClasses(passModel,'is-valid', 'is-invalid')"/>
+              <label class="form-label text-warning" for="form3Example4">Password</label>
+            </div>
+            @if(passModel.errors?.['required']) {
+              <div class="invalid-feedback text-danger">Password cannot be empty</div>
+              }
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a [routerLink]="['/register']"
+                  class="link-danger">Register</a></p>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

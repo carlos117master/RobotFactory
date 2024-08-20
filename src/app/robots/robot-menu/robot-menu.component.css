@@ -1,0 +1,15 @@
+nav{
+    background-color: grey;
+    margin-bottom: 20px;
+}
+
+.nuevo, .loggout, .login{
+    color: white;
+}
+.nuevo:hover, .loggout:hover, .login:hover{
+    color: black
+}
+nav li:hover{
+    background-color: white;
+    border-radius: 10px;
+}

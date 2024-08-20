@@ -1,0 +1,96 @@
+<div class="container-fuid imgHeader">
+    <div class="imgHeader-text pt-5 text-warning">
+      <h1>
+        <a class="text-decoration-none" [routerLink]="['/home']" routerLinkActive="router-link-active" >home</a>/detalle de
+        producto
+      </h1>
+    </div>
+  </div>
+
+  @if(robot){
+  <main class="container-fluid mt-4 mb-4">
+    <section class="row">
+      <article class="card col-12 col-md-9">
+        <img
+          [src]="robot.imagen"
+          class="card-img-top img-fluid"
+          alt="AgryBot"
+        />
+        <div class="card-body">
+          <h2 class="card-title text-warning" style="font-size: 50px">{{robot.titulo}}</h2>
+          <p class="card-text text-light">
+           {{robot.descripcion}}
+          </p>
+            <div class="comments" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <ul class="list-group mt-4 mb-4" id="comments">
+                    <li class="list-group-item active">Comments</li>
+                    @for(comment of comments; track robot._id){
+                     <li class="list-group-item d-flex flex-row">
+                      <img class="rounded-circle align-self-start me-3" src="assets/Bot.jpg" alt="avatar">
+                      <div>
+                        <div><strong>{{comment.usuario.nickname}} </strong>{{comment.text}}</div>
+                        <div><small class="text-muted">{{comment.date | date : 'short'}}</small></div>
+                      </div>
+                    </li>
+                  }
+                  </ul>
+
+                  <form class="mt-4" id="commentForm" (ngSubmit)="addComment()" #addForm="ngForm">
+                    <div class="mb-3">
+                      <textarea class="form-control" name="comment" id="comment" placeholder="Escribe un comentario" [(ngModel)]="comment"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Send</button>
+                  </form>
+            </div>
+        </div>
+      </article>
+
+      <article class="col-12 col-md-3 d-flex d-md-block">
+          <div class="card m-4" style="width: 18rem">
+             <img
+                  style="height: 150px;"
+                src="/assets/product-3.jpg"
+                class="card-img-top img-fluid"
+                alt="Robot Tres"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-warning">Robot Tres <span class="badge bg-secondary">New</span></h5>
+                <p class="text text-light">Robot tres es un compañero de trabajo eficiente, diseñado para
+                  aumentar la productividad en entornos de oficina. Sus capacidades
+                  avanzadas de procesamiento lo convierten en un valioso miembro del
+                  equipo.</p>
+              </div>
+            </div>
+
+            <div class="card m-4" style="width: 18rem">
+              <img
+              style="height: 150px;"
+                src="/assets/product-1.jpg"
+                class="card-img-top img-fluid"
+                alt="Robot Tres"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-warning">Robot space</h5>
+                <p class="text text-light">Robot space es un robot versátil con habilidades de inteligencia
+                  artificial. Desde tareas domésticas hasta actividades de oficina,
+                  este robot es capaz de adaptarse a diferentes entornos.</p>
+              </div>
+            </div>
+            <div class="card m-4" style="width: 18rem">
+              <img
+              style="height: 150px;"
+                src="/assets/shop-3.png"
+                class="card-img-top img-fluid"
+                alt="Robot Tres"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-warning">Mega Bot <span class="badge bg-secondary">New</span></h5>
+                <p class="text text-light"> Mega bot es un compañero personal inteligente con funciones
+                  diversas. Desde asistente personal hasta entretenimiento, este
+                  robot está diseñado para hacer tu vida más fácil y divertida.</p>
+              </div>
+            </div>
+      </article>
+    </section>
+  </main>
+}

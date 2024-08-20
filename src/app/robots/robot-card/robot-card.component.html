@@ -1,0 +1,31 @@
+  @if(robot.imagen){
+  <img
+      [routerLink]="['/robots/', robot._id]"
+      [src]="robot.imagen"
+      class="card-img-top img-fluid"
+      alt="AgryBot"
+    />}
+    <div class="card-body">
+      @if(robot.titulo || robot.descripcion){
+        <h5 class="card-title text-warning">{{robot.titulo}}</h5>
+      <p class="card-text text-warning">
+        {{robot.descripcion}}
+      </p>
+    }
+    @if(infoUsuario){
+    <div class="col-auto d-flex align-items-center avatar ps-1 pe-1">
+      <img src="assets/Bot.jpg" class="rounded-circle" alt="" [routerLink]="['/profile/' + idUsuario]"/>
+        <div class="nickname text-warning" [routerLink]="['/robots/' , '6648d4aaf458a53b96b01305']">{{infoUsuario.nickname || "nickname no disponible"}}</div>
+  </div>
+  }
+  <div><small class="text-muted">{{robot.fecha | date : 'short'}}</small></div>
+    @if(robot.mine){
+      <button class="btn btn-success mr-3 h-100 " [routerLink]="['/robots' , robot._id , 'edit']">edit</button>
+      <button class="btn btn-danger mr-3 h-100 delete" (click)="deleteRobot()">Delete</button>
+    }
+
+      @if(this.robot){
+        <a (click)="goToDetalle()" class="btn btn-success">Ver detalles</a>
+      }
+    </div>
+    

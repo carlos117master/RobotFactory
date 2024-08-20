@@ -1,0 +1,16 @@
+.album{
+    border-radius: 10px;
+}
+
+.imgHeader {
+    width: 100%;
+    height: 45vh;
+    align-items: center;
+    background: url("/assets/noticias.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+  }
+  .imgHeader .imgHeader-text {
+    text-align: center;
+  }
